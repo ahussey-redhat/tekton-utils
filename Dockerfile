@@ -2,7 +2,7 @@
 # Based on Red Hat OpenShift Dev Spaces - Universal Developer Image https://github.com/devfile/developer-images/blob/main/universal/ubi8/Dockerfile
 
 # updateBaseImages.sh can't operate on SHA-based tags as they're not date-based or semver-sequential, and therefore cannot be ordered
-FROM registry.access.redhat.com/ubi9/ubi:latest
+FROM registry.access.redhat.com/ubi9/ubi@sha256:bd30f546dfb78ef0fb7789376afd22671319007af473f03370dafab34302c857
 LABEL maintainer="ahussey"
 
 LABEL com.redhat.component="ubi"
@@ -17,6 +17,8 @@ LABEL summary="TekTon Utilities"
 LABEL description="Container image with tools aimed to be used as part of TekTon workflows"
 LABEL io.k8s.display-name="tekton-utils"
 LABEL io.openshift.expose-services=""
+
+LABEL org.opencontainers.image.source="https://github.com/ahussey-redhat/tekton-utils"
 
 USER 10001
 
