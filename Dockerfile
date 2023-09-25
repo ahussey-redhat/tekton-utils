@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.3-labs
-# Basded on Red Hat OpenShift Dev Spaces - Universal Developer Image https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
+# Based on Red Hat OpenShift Dev Spaces - Universal Developer Image https://github.com/devfile/developer-images/blob/main/universal/ubi8/Dockerfile
 
 # updateBaseImages.sh can't operate on SHA-based tags as they're not date-based or semver-sequential, and therefore cannot be ordered
 FROM registry.access.redhat.com/ubi9/ubi:latest
