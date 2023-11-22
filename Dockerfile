@@ -32,6 +32,10 @@ RUN mkdir -p /home/user/.local/bin && \
     chgrp -R 0 /home && chmod -R g=u /home
 ENV PATH="/home/user/.local/bin:$PATH"
 
+# Install full cURL
+RUN dnf -y update && \
+    dnf -y swap curl curl-minimal
+
 # Python
 RUN dnf -y update && \
     dnf -y install python3.11 python3.11-devel python3.11-setuptools python3.11-pip nss_wrapper
