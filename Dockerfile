@@ -38,15 +38,15 @@ RUN dnf -y update && \
 
 # Python
 RUN dnf -y update && \
-    dnf -y install python3.11 python3.11-devel python3.11-setuptools python3.11-pip nss_wrapper
+    dnf -y install python3.12 python3.12-devel python3.12-setuptools python3.12-pip nss_wrapper
 
 RUN cd /usr/bin \
-    && if [ ! -L python ]; then ln -s python3.11 python; fi \
-    && if [ ! -L pydoc ]; then ln -s pydoc3.11 pydoc; fi \
-    && if [ ! -L python-config ]; then ln -s python3.11-config python-config; fi \
-    && if [ ! -L pip ]; then ln -s pip-3.11 pip; fi
+    && if [ ! -L python ]; then ln -s python3.12 python; fi \
+    && if [ ! -L pydoc ]; then ln -s pydoc3.12 pydoc; fi \
+    && if [ ! -L python-config ]; then ln -s python3.12-config python-config; fi \
+    && if [ ! -L pip ]; then ln -s pip-3.12 pip; fi
 
-RUN pip install pylint yq
+RUN pip install pylint
 
 # git completion
 RUN echo "source /usr/share/bash-completion/completions/git" >> /home/user/.bashrc
@@ -167,7 +167,7 @@ rm -rf "${TEMP_DIR}"
 RUN set -euxo pipefail && \
 TEMP_DIR="$(mktemp -d)" && \
 cd "${TEMP_DIR}" && \
-YQ_VERSION="4.35.1" && \
+YQ_VERSION="4.44.3" && \
 YQ_ARCH="linux_amd64" && \
 YQ_URL="https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${YQ_ARCH}" && \
 #YQ_CHECKSUMS_URL="https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/checksums" && \
